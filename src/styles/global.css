@@ -6,3 +6,27 @@
 *::after {
   box-sizing: border-box;
 }
+/* Custom thin golden scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; /* thin line */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* invisible track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #c9a84c; /* golden yellow thumb */
+  border-radius: 9999px; /* fully rounded ends */
+}
+
+/* Firefox support */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #c9a84c transparent;
+}
+
+/* Optional: smooth scrolling for nice feel */
+html {
+  scroll-behavior: smooth;
+}
