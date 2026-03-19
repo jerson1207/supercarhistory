@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Make sizing predictable */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #f9fafb; /* light gray background */
+  color: #111827; /* dark text */
+}
