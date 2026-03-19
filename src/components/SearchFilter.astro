@@ -11,12 +11,12 @@ import { brands, eras } from "../data/cars";
             <input type="text" id="searchInput" placeholder="Search supercars..." class="w-full bg-white/5 border border-white/10 text-white placeholder-white/30 pl-10 pr-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm"/>
         </div>
 
-        <select id="brandSelect" class="bg-white/5 border border-white/10 text-white/70 px-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm min-w-[140px]">
+        <select id="brandSelect" class="bg-white/5 border border-white/10 text-white/70 px-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm min-w-35">
             <option value="">All Brands</option>
             {brands.map(b => <option value={b} class="bg-[#1a1a1a]">{b}</option>)}
         </select>
 
-        <select id="eraSelect" class="bg-white/5 border border-white/10 text-white/70 px-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm min-w-[140px]">
+        <select id="eraSelect" class="bg-white/5 border border-white/10 text-white/70 px-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm min-w-35">
             <option value="">All Eras</option>
             {eras.map(e => <option value={e} class="bg-[#1a1a1a]">{e}</option>)}
         </select>
