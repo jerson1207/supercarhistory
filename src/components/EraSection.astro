@@ -1,0 +1,31 @@
+---
+import CarCard from './CarCard.astro';
+import type { Era, Car } from '../types';
+import { eraDescriptions } from '../types';
+
+const { era, cars } = Astro.props as { era: Era; cars: Car[] };
+const safeEra: Era = era;
+const carsInEra: Car[] = cars.filter(car => car.era === safeEra);
+---
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="flex items-end justify-between mb-8">
+    <div>
+      <p class="text-[#c9a84c] text-xs tracking-[0.3em] uppercase mb-2">
+        {eraDescriptions[safeEra] || "Unknown Era"}
+      </p>
+      <h2 class="text-white text-3xl md:text-4xl font-extralight tracking-tight">
+        {safeEra}
+      </h2>
+    </div>
+    <a href="/carlist" class="text-white/30 hover:text-[#c9a84c] text-sm">View all</a>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {carsInEra.map(car => (
+      <div class="car-card" data-brand={car.brand} data-name={car.name.toLowerCase()}>
+        <CarCard car={car} />
+      </div>
+    ))}
+  </div>
+</section>

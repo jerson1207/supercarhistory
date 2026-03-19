@@ -1,0 +1,62 @@
+<div class="relative h-screen min-h-150 overflow-hidden flex items-center justify-center">
+    <div
+        class="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1800&q=80')",
+        }}
+      />
+    <div class="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-[#0a0a0a]" />
+
+    <!-- content -->
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <p class="text-[#c9a84c] text-xs tracking-[0.5em] uppercase mb-6 animate-fade-in">
+        The Definitive Archive
+      </p>
+
+      <h1 class="text-white text-5xl md:text-7xl lg:text-8xl font-extralight tracking-tight leading-none mb-6">
+        Legends in
+        <br />
+        <span class="italic text-[#c9a84c]">Motion</span>
+      </h1>
+
+      <p class="text-white/50 text-lg md:text-xl font-light max-w-xl mx-auto mb-10 leading-relaxed">
+        Explore the history, engineering, and cultural impact of the world's most extraordinary supercars.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/collection"
+          class="inline-flex items-center justify-center px-8 py-4 bg-[#c9a84c] text-black text-sm font-medium tracking-widest uppercase rounded-full hover:bg-[#d4b86a] transition-all hover:scale-105"
+        >
+          Explore Collection
+        </a>
+
+        <a
+          href="/about"
+          class="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white/70 text-sm font-medium tracking-widest uppercase rounded-full hover:border-white/50 hover:text-white transition-all"
+        >
+          Our Mission
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+      <span class="text-xs tracking-widest uppercase">Scroll</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="animate-bounce"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </div>

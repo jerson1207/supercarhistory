@@ -1,0 +1,28 @@
+---
+import { brands, eras } from "../data/cars";
+---
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">
+            <circle cx="7" cy="7" r="5"></circle>
+            <line x1="11" y1="11" x2="15" y2="15"></line>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search supercars..." class="w-full bg-white/5 border border-white/10 text-white placeholder-white/30 pl-10 pr-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm"/>
+        </div>
+
+        <select id="brandSelect" class="bg-white/5 border border-white/10 text-white/70 px-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm min-w-[140px]">
+            <option value="">All Brands</option>
+            {brands.map(b => <option value={b} class="bg-[#1a1a1a]">{b}</option>)}
+        </select>
+
+        <select id="eraSelect" class="bg-white/5 border border-white/10 text-white/70 px-4 py-3 rounded-xl focus:outline-none focus:border-[#c9a84c]/60 transition-colors text-sm min-w-[140px]">
+            <option value="">All Eras</option>
+            {eras.map(e => <option value={e} class="bg-[#1a1a1a]">{e}</option>)}
+        </select>
+
+        <button id="clearFilters" class="flex items-center gap-2 px-4 py-3 border border-white/10 text-white/40 hover:text-white hover:border-white/30 rounded-xl transition-colors text-sm" style="display:none;">
+            Clear
+        </button>
+    </div>
+</section>
