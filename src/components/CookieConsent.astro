@@ -1,0 +1,60 @@
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-100 p-4 md:p-6 hidden">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-[#111] border border-white/10 rounded-2xl px-6 py-5 shadow-2xl">
+    
+    <div class="flex-1">
+      <p class="text-white/80 text-sm leading-relaxed">
+        We use cookies to improve your experience and serve relevant content. By continuing, you agree to our 
+        <a href="/privacy-policy" class="text-[#c9a84c] hover:underline">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <div class="flex items-center gap-3 shrink-0">
+      <button id="decline-cookies" class="text-white/30 hover:text-white/60 text-xs tracking-widest uppercase transition-colors px-3 py-2">
+        Decline
+      </button>
+      <button id="accept-cookies" class="px-5 py-2.5 bg-[#c9a84c] text-black text-xs tracking-widest uppercase rounded-xl font-medium hover:bg-[#d4b45a] transition-colors">
+        Accept
+      </button>
+      <button id="close-cookies" class="text-white/20 hover:text-white/40 transition-colors p-1">
+        &#10005;
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Elements
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+  const declineBtn = document.getElementById('decline-cookies');
+  const closeBtn = document.getElementById('close-cookies');
+
+  if (banner) {
+    const consent = localStorage.getItem('cookie_consent');
+
+    // Logic: Only show if no prior consent exists
+    if (!consent) {
+      // We remove 'hidden' class which is Tailwind's display: none
+      banner.classList.remove('hidden');
+      banner.style.display = 'flex'; 
+    }
+
+    const hideBanner = () => {
+      banner.style.display = 'none';
+      banner.classList.add('hidden');
+    };
+
+    acceptBtn?.addEventListener('click', () => {
+      localStorage.setItem('cookie_consent', 'accepted');
+      hideBanner();
+    });
+
+    declineBtn?.addEventListener('click', () => {
+      localStorage.setItem('cookie_consent', 'declined');
+      hideBanner();
+    });
+
+    closeBtn?.addEventListener('click', hideBanner);
+  }
+</script>

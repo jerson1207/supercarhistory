@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import CookieConsent from "../components/CookieConsent.astro";
 const { title = "Super Car History" } = Astro.props;
 const currentPath = Astro.url.pathname;
 const navLinks = [
@@ -80,5 +81,7 @@ const navLinks = [
         <a href="/disclaimer" class="hover:text-[#c9a84c] hover:underline transition-colors">Disclaimer</a>
       </div>
     </footer>
+
+    <CookieConsent />
   </body>
 </html>
