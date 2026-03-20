@@ -1,6 +1,7 @@
 export const mclarenCars = [
   {
     id: "mclaren-f1",
+    slug: "mclaren-f1",
     name: "McLaren F1",
     brand: "McLaren",
     year: "1992–1998",
@@ -25,6 +26,7 @@ export const mclarenCars = [
   },
   {
     id: "mclaren-p1",
+    slug: "mclaren-p1",
     name: "McLaren P1",
     brand: "McLaren",
     year: "2013–2015",

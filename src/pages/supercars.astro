@@ -1,0 +1,141 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdBanner from '../components/AdBanner.astro';
+import SearchFilter from '../components/SearchFilter.astro';
+import { carsData } from "../data/cars";
+import CarCard from '../components/CarCard.astro';
+---
+
+<Layout 
+  title="Fastest Supercars – Specs, History & Performance | SupercarHistory" 
+  description="Dive into our curated collection of legendary supercars with detailed specifications, top speeds, and historical insights."
+>
+  <div class="min-h-screen bg-[#0a0a0a] pt-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-[#c9a84c] text-xs tracking-[0.3em] uppercase mb-2">
+          Browse Collection
+        </p>
+        <h1 class="text-white text-4xl md:text-5xl font-extralight tracking-tight">
+          All Supercars
+        </h1>
+      </div>
+
+      <!-- Filters -->
+      <SearchFilter />
+
+      <!-- Ad -->
+      <div class="my-10">
+        <AdBanner />
+      </div>
+
+      <!-- Result Count -->
+      <div class="flex items-center justify-between mb-6">
+        <p class="text-white/60 text-sm">
+          Results: <span id="result-count">{carsData.length}</span>
+        </p>
+      </div>
+
+      <!-- No Results -->
+      <p id="no-results" class="hidden text-white/40 text-sm mt-10 text-center">
+        No supercars found matching your filters.
+      </p>
+
+      <!-- Cars Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {carsData.map(car => (
+          <div 
+            class="car-card"
+            data-name={car.name.toLowerCase()}
+            data-brand={car.brand}
+            data-era={car.era}
+          >
+            <CarCard car={car} />
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<!-- 🔥 FILTER SCRIPT -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const searchInput = document.getElementById('searchInput');
+    const brandSelect = document.getElementById('brandSelect');
+    const eraSelect = document.getElementById('eraSelect');
+    const clearBtn = document.getElementById('clearFilters');
+
+    const resultCount = document.getElementById('result-count');
+    const noResults = document.getElementById('no-results');
+
+    const cards = document.querySelectorAll('.car-card');
+
+    if (!searchInput || !brandSelect || !eraSelect) return;
+
+    // 🔥 Debounce
+    const debounce = (fn, delay = 250) => {
+      let timeout;
+      return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn(...args), delay);
+      };
+    };
+
+    const triggerFilter = () => {
+      const query = searchInput.value.toLowerCase();
+      const brand = brandSelect.value;
+      const era = eraSelect.value;
+
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.name;
+        const carBrand = card.dataset.brand;
+        const carEra = card.dataset.era;
+
+        const matchesSearch = name.includes(query);
+        const matchesBrand = brand ? carBrand === brand : true;
+        const matchesEra = era ? carEra === era : true;
+
+        const show = matchesSearch && matchesBrand && matchesEra;
+
+        card.style.display = show ? "block" : "none";
+
+        if (show) visibleCount++;
+      });
+
+      // Update count
+      resultCount.textContent = visibleCount;
+
+      // No results state
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      // Show/hide clear button
+      clearBtn.style.display = (query || brand || era) ? "flex" : "none";
+    };
+
+    const debouncedFilter = debounce(triggerFilter);
+
+    // Events
+    searchInput.addEventListener('input', debouncedFilter);
+    brandSelect.addEventListener('change', triggerFilter);
+    eraSelect.addEventListener('change', triggerFilter);
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      brandSelect.value = '';
+      eraSelect.value = '';
+      triggerFilter();
+    });
+
+  });
+</script>

@@ -5,7 +5,7 @@ const { car } = Astro.props;
 ---
 
 <a
-  href="#"
+  href={`/supercars/${car.id}`}
   class="group block bg-white/3 border border-white rounded-2xl overflow-hidden hover:border-[#c9a84c]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#c9a84c]/5"
 >
   <div class="relative overflow-hidden h-48">

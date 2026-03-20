@@ -1,6 +1,7 @@
 export const paganiCars = [
   {
     id: "pagani-huayra",
+    slug: "pagani-huayra",
     name: "Pagani Huayra",
     brand: "Pagani",
     year: "2012–present",

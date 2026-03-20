@@ -7,13 +7,17 @@ import EraSection from '../components/EraSection.astro';
 import { carsData, eras } from "../data/cars";
 ---
 
-<Layout>
+<Layout 
+  title="SupercarHistory – Explore Legendary Supercars | SupercarHistory" 
+  description="Discover the world’s fastest and most iconic supercars, their history, specs, and engine sounds."
+>
+  <div class="page-entrance">
     <Hero />
     <AdBanner />
     <SearchFilter />
 
     <div id="default-results">
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 text-red-600">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
             <h2 class="text-white text-2xl font-light tracking-widest mb-8 uppercase">
                 All Cars <span class="text-[#c9a84c]">({carsData.length})</span>
             </h2>
@@ -29,13 +33,12 @@ import { carsData, eras } from "../data/cars";
             Filtered Results <span id="filter-count" class="text-[#c9a84c]">(0)</span>
         </h2>
         <div id="results-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-		</div>
+        </div>
     </div>
+  </div>
 </Layout>
 
 <script is:inline define:vars={{ carsData }}>
-  // Now 'carsData' is available inside the script!
-  
   const searchInput = document.getElementById('searchInput');
   const brandSelect = document.getElementById('brandSelect');
   const eraSelect = document.getElementById('eraSelect');
@@ -56,16 +59,14 @@ import { carsData, eras } from "../data/cars";
     if (!isFiltered) {
         defaultView.classList.remove('hidden');
         filterView.classList.add('hidden');
-        clearBtn.style.display = 'none';
+        if(clearBtn) clearBtn.style.display = 'none';
         return;
     }
 
-    // Show filtered view, hide default
     defaultView.classList.add('hidden');
     filterView.classList.remove('hidden');
-    clearBtn.style.display = 'flex';
+    if(clearBtn) clearBtn.style.display = 'flex';
 
-    // Filter Logic
     const filteredCars = carsData.filter(car => {
         const matchesSearch = car.name.toLowerCase().includes(query);
         const matchesBrand = brand ? car.brand === brand : true;
@@ -73,67 +74,79 @@ import { carsData, eras } from "../data/cars";
         return matchesSearch && matchesBrand && matchesEra;
     });
 
-    // Update UI
     filterCount.innerText = `(${filteredCars.length})`;
     
-    // Render Cards
-    resultsGrid.innerHTML = filteredCars.map(car => `			
-		<a
-			href="#"
-			class="group block bg-white/3 border border-white rounded-2xl overflow-hidden hover:border-[#c9a84c]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#c9a84c]/5"
-		>
-			<div class="relative overflow-hidden h-48">
-			<img
-				src="${car.imgURL || ''}"
-				alt="${car.name || ''}"
-				class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-				loading="lazy"
-			/>
-			<div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
-			<div class="absolute top-3 left-3">
-				<span class="bg-black/60 backdrop-blur-sm text-[#c9a84c] text-xs px-2.5 py-1 rounded-full border border-[#c9a84c]/30 tracking-wider uppercase">
-				${car.era || ''}
-				</span>
-			</div>
-			<div class="absolute bottom-3 right-3">
-				<span class="bg-black/60 backdrop-blur-sm text-white/60 text-xs px-2.5 py-1 rounded-full">
-				${car.type || ''}
-				</span>
-			</div>
-			</div>
+    // 2. Updated the href to dynamically link to /cars/[id]
+    resultsGrid.innerHTML = filteredCars.map(car => `           
+        <a
+            href="/cars/${car.id}"
+            class="group block bg-white/3 border border-white/10 rounded-2xl overflow-hidden hover:border-[#c9a84c]/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#c9a84c]/5"
+        >
+            <div class="relative overflow-hidden h-48">
+            <img
+                src="${car.imgURL || ''}"
+                alt="${car.name || ''}"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute top-3 left-3">
+                <span class="bg-black/60 backdrop-blur-sm text-[#c9a84c] text-[10px] px-2.5 py-1 rounded-full border border-[#c9a84c]/30 tracking-widest uppercase">
+                ${car.era || ''}
+                </span>
+            </div>
+            </div>
 
-			<div class="p-5">
-			<p class="text-white/40 text-xs tracking-widest uppercase mb-1">${car.brand || ''}</p>
-			<h3 class="text-white text-lg font-light leading-tight mb-1">${car.name || ''}</h3>
-			<p class="text-white/30 text-xs mb-4">${car.year || ''}</p>
+            <div class="p-5">
+            <p class="text-white/40 text-[10px] tracking-widest uppercase mb-1">${car.brand || ''}</p>
+            <h3 class="text-white text-lg font-light leading-tight mb-1">${car.name || ''}</h3>
+            <p class="text-white/30 text-xs mb-4">${car.year || ''}</p>
 
-			<div class="flex items-center justify-between pt-4 border-t border-white/8">
-				<div class="flex items-center gap-1.5 text-white/60">
-				<span class="text-sm font-medium text-white">${car.horsepower || ''}</span>
-				<span class="text-xs text-white/30">hp</span>
-				</div>
-				<div class="flex items-center gap-1.5 text-white/60">
-				<span class="text-sm font-medium text-white">${car.topSpeed || ''}</span>
-				<span class="text-xs text-white/30">mph</span>
-				</div>
-				<div class="text-right">
-				<span class="text-sm font-medium text-white">${car.acceleration || ''}</span>
-				<span class="text-xs text-white/30 ml-1">0-60</span>
-				</div>
-			</div>
-			</div>
-		</a>
-		`).join('');
+            <div class="flex items-center justify-between pt-4 border-t border-white/8">
+                <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-white">${car.horsepower || ''}</span>
+                <span class="text-[10px] text-white/30 uppercase tracking-tighter">hp</span>
+                </div>
+                <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-white">${car.topSpeed || ''}</span>
+                <span class="text-[10px] text-white/30 uppercase tracking-tighter">mph</span>
+                </div>
+                <div class="text-right">
+                <span class="text-sm font-medium text-white">${car.acceleration || ''}</span>
+                <span class="text-[10px] text-white/30 ml-1 uppercase tracking-tighter">0-60</span>
+                </div>
+            </div>
+            </div>
+        </a>
+        `).join('');
   };
 
-  // Event Listeners
-  searchInput.addEventListener('input', triggerFilter);
-  brandSelect.addEventListener('change', triggerFilter);
-  eraSelect.addEventListener('change', triggerFilter);
-  clearBtn.addEventListener('click', () => {
+  searchInput?.addEventListener('input', triggerFilter);
+  brandSelect?.addEventListener('change', triggerFilter);
+  eraSelect?.addEventListener('change', triggerFilter);
+  clearBtn?.addEventListener('click', () => {
     searchInput.value = '';
     brandSelect.value = '';
     eraSelect.value = '';
     triggerFilter();
   });
 </script>
+
+<style>
+  .page-entrance {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 100ms;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 export const porscheCars = [
   {
     id: "porsche-carrera-gt",
+    slug: "porsche-carrera-gt",
     name: "Porsche Carrera GT",
     brand: "Porsche",
     year: "2004–2006",

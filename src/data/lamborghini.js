@@ -1,6 +1,7 @@
 export const lamborghiniCars = [
   {
     id: "lamborghini-countach",
+    slug: "lamborghini-countach",
     name: "Lamborghini Countach",
     brand: "Lamborghini",
     year: "1974–1990",
@@ -47,6 +48,7 @@ export const lamborghiniCars = [
   },
   {
     id: "lamborghini-murcielago",
+    slug: "lamborghini-murcielago",
     name: "Lamborghini Murciélago",
     brand: "Lamborghini",
     year: "2001–2010",
@@ -90,6 +92,7 @@ export const lamborghiniCars = [
   },
   {
     id: "lamborghini-miura-sv",
+    slug: "lamborghini-miura-sv",
     name: "Lamborghini Miura SV",
     brand: "Lamborghini",
     year: "1971–1973",

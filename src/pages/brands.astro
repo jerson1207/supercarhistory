@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Supercar Brands – Lamborghini, Ferrari, Porsche & More | SupercarHistory" 
+  description="Explore the world’s most iconic supercar brands. Learn about Lamborghini, Ferrari, Porsche, and other legendary manufacturers, their history, and signature vehicles."
+>
+  <div class="min-h-[80vh] flex items-center justify-center px-6">
+    <div class="max-w-2xl w-full text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/20 mb-6 animate-pulse">
+        <div class="w-1.5 h-1.5 rounded-full bg-[#c9a84c]"></div>
+        <span class="text-[#c9a84c] text-[10px] uppercase tracking-[0.2em] font-medium">Under Construction</span>
+      </div>
+
+      <h1 class="text-white text-4xl md:text-6xl font-extralight tracking-tighter mb-6">
+        The World's Finest <br /> 
+        <span class="text-[#c9a84c]">Automotive Legends</span>
+      </h1>
+
+      <p class="text-white/40 text-sm md:text-base leading-relaxed max-w-md mx-auto mb-10 tracking-wide">
+        We are curating a definitive archive of the manufacturers that redefined speed. From the heritage of Maranello to the precision of Stuttgart.
+      </p>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+        <h2 class="text-white text-xs uppercase tracking-[0.4em] mb-6">Coming to the Collection</h2>
+        <div class="flex flex-wrap justify-center gap-6 opacity-30 grayscale">
+            <span class="text-white font-light tracking-widest uppercase text-[10px]">Lamborghini</span>
+            <span class="text-white font-light tracking-widest uppercase text-[10px]">Ferrari</span>
+            <span class="text-white font-light tracking-widest uppercase text-[10px]">Porsche</span>
+            <span class="text-white font-light tracking-widest uppercase text-[10px]">McLaren</span>
+            <span class="text-white font-light tracking-widest uppercase text-[10px]">Bugatti</span>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <a 
+          href="/" 
+          class="text-[#c9a84c] text-[10px] uppercase tracking-[0.3em] hover:text-white transition-colors flex items-center justify-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Back to Collection
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Subtle entrance animation */
+  div {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

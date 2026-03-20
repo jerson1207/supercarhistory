@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CarCompare from "../components/Compare.jsx";
+---
+<Layout 
+  title="Supercar Comparisons – Speed, Specs & Performance | SupercarHistory" 
+  description="Compare the world’s fastest supercars side by side. Explore horsepower, top speed, acceleration, and iconic features of legendary vehicles."
+>
+  <div class="page-entrance">
+    <CarCompare client:load>
+      <div slot="fallback" class="min-h-[60vh] flex items-center justify-center bg-[#0a0a0a]">
+        <div class="flex flex-col items-center gap-4">
+          <div class="w-10 h-10 border-2 border-[#c9a84c]/20 border-t-[#c9a84c] rounded-full animate-spin"></div>
+          <p class="text-[#c9a84c] text-xs uppercase tracking-widest animate-pulse">Initializing Comparison Engine...</p>
+        </div>
+      </div>
+    </CarCompare>
+  </div>
+</Layout>
+
+<style>
+  .page-entrance {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 100ms;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,0 +1,12 @@
+---
+const { icon, label, value } = Astro.props;
+---
+
+<div class="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-col gap-3 hover:border-[#c9a84c]/40 transition-colors">
+    <img src={icon} alt="" class="w-6 h-6 opacity-80" style="filter: invert(78%) sepia(21%) saturate(972%) hue-rotate(5deg) brightness(92%) contrast(85%);" />
+    
+    <div>
+      <p class="text-white text-xl font-light">{value}</p>
+      <p class="text-white/30 text-[10px] uppercase tracking-widest mt-1">{label}</p>
+    </div>
+</div>

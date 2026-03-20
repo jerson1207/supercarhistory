@@ -16,7 +16,7 @@
 
   <!-- Compare Page -->
   <url>
-    <loc>https://supercarhistory.com/compare</loc>
+    <loc>https://supercarhistory.com/supercar-comparisons</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

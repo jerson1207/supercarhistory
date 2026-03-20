@@ -1,6 +1,7 @@
 export const koenigseggCars = [
   {
     id: "koenigsegg-agera",
+    slug: "koenigsegg-agera", // ✅ added
     name: "Koenigsegg Agera RS",
     brand: "Koenigsegg",
     year: "2015–2018",
