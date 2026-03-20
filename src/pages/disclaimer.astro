@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    title: "1. General Disclaimer",
+    body: "The information provided on Supercar History (\"we\", \"our\", \"us\") is for general informational and entertainment purposes only. While we strive to keep content accurate and up to date, we make no representations or warranties of any kind regarding completeness, accuracy, reliability, or suitability of the information.",
+  },
+  {
+    title: "2. Vehicle Specifications",
+    body: "All performance figures, specifications, and technical data presented on this site are sourced from publicly available records and manufacturer documentation. Figures may vary depending on model year, configuration, and testing conditions. Supercar History is not responsible for any discrepancies between the data presented and official manufacturer specifications.",
+  },
+  {
+    title: "3. Not Professional Advice",
+    body: "Nothing on this website constitutes professional automotive, financial, legal, or investment advice. If you are making purchasing decisions based on vehicle information, we recommend consulting official manufacturer resources or qualified professionals.",
+  },
+  {
+    title: "4. External Links",
+    body: "Supercar History may contain links to third-party websites provided for convenience. We have no control over the content of these sites and accept no responsibility for any loss or damage arising from your use of them.",
+  },
+  {
+    title: "5. Images & Media",
+    body: "Vehicle images are sourced from Unsplash and other third-party providers under their respective licenses. All media rights remain with the original creators. If you believe any content infringes your rights, please contact us and we will address it promptly.",
+  },
+  {
+    title: "6. Availability",
+    body: "Supercar History may suspend or discontinue the website at any time without notice. We do not guarantee that the website will be available at all times or that it will be free from errors, viruses, or other harmful components.",
+  },
+  {
+    title: "7. Advertising & Affiliate Links",
+    body: "This website may display advertisements or affiliate links. Clicking these links may earn commissions at no additional cost to you. We are not responsible for the content, products, or services provided on third-party sites.",
+  },
+  {
+    title: "8. Governing Law",
+    body: "These terms are governed by and construed in accordance with the laws of the Philippines. Any disputes shall be subject to the exclusive jurisdiction of the courts of the Philippines.",
+  },
+];
+---
+
+<Layout title="Disclaimer | Supercar History">
+  <div class="min-h-screen bg-[#0a0a0a] pt-28 pb-24">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="mb-14">
+        <p class="text-[#c9a84c] text-xs tracking-[0.3em] uppercase mb-3">Legal</p>
+
+        <h1 class="text-white text-4xl md:text-5xl font-extralight tracking-tight mb-4">
+          <span class="text-[#c9a84c]">Disclaimer</span>
+        </h1>
+
+        <p class="text-white/40 text-sm">Last updated: March 20, 2026</p>
+
+        <div class="mt-6 h-px bg-gradient-to-r from-[#c9a84c]/30 to-transparent"></div>
+      </div>
+
+      <!-- Intro -->
+      <p class="text-white/50 text-sm leading-relaxed mb-12">
+        By using this website, you acknowledge and accept the limitations outlined below. Supercar History is not responsible for any actions or decisions made based on the information provided here.
+      </p>
+
+      <!-- Sections -->
+      <div class="space-y-10">
+        {sections.map((section) => (
+          <div>
+            <h2 class="text-white text-base font-medium mb-3 tracking-wide">
+              {section.title}
+            </h2>
+
+            <p class="text-white/40 text-sm leading-relaxed">
+              {section.body}
+            </p>
+
+            <div class="mt-6 h-px bg-white/5"></div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

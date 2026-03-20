@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    title: "1. Overview",
+    body: "Supercar History (\"we\", \"our\", \"us\") is committed to protecting your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights. By using this website, you agree to the practices described in this policy.",
+  },
+  {
+    title: "2. Information We Collect",
+    body: "We do not require account registration and do not directly collect personal information such as your name, email address, or payment details. However, anonymized data such as browser type, device information, and page interactions may be collected through analytics tools to improve site performance.",
+  },
+  {
+    title: "3. Local Storage",
+    body: "The 'My Collection' feature uses your browser's localStorage to save selected vehicles. This data remains on your device and is not transmitted to our servers or shared with any third party. You may clear this data at any time through your browser settings.",
+  },
+  {
+    title: "4. Cookies",
+    body: "We use essential cookies to ensure the website functions properly. Third-party services, including advertising providers, may use cookies or similar technologies to deliver relevant ads. You can control or disable cookies through your browser settings.",
+  },
+  {
+    title: "5. Third-Party Advertising",
+    body: "This website may display advertisements from third-party networks such as Google AdSense. These providers may use cookies and tracking technologies to show ads based on your interests and browsing behavior. We do not control these cookies. Please refer to Google's advertising policies for more information.",
+  },
+  {
+    title: "6. Third-Party Services",
+    body: "We may use third-party services such as analytics providers and image platforms. These services operate under their own privacy policies, and we encourage you to review them. We are not responsible for their data practices.",
+  },
+  {
+    title: "7. Data Security",
+    body: "We implement reasonable security measures to protect the website. However, no online platform can guarantee complete security, and use of the site is at your own risk.",
+  },
+  {
+    title: "8. Children's Privacy",
+    body: "This website is not intended for children under the age of 13. We do not knowingly collect personal data from children. If you believe a child has provided information, please contact us so we can take appropriate action.",
+  },
+  {
+    title: "9. Your Rights",
+    body: "Depending on your location, you may have rights regarding your personal data, including access, correction, or deletion. Since we do not directly collect personal data, most user information remains under your control via your browser settings.",
+  },
+  {
+    title: "10. Changes to This Policy",
+    body: "We may update this Privacy Policy at any time. Updates will be posted on this page with a revised date. Continued use of the site indicates acceptance of any changes.",
+  },
+  {
+    title: "11. Contact Us",
+    body: "If you have any questions about this Privacy Policy, you may contact us through the About page.",
+  },
+];
+---
+
+<Layout title="Privacy Policy | Supercar History">
+  <div class="min-h-screen bg-[#0a0a0a] pt-28 pb-24">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="mb-14">
+        <p class="text-[#c9a84c] text-xs tracking-[0.3em] uppercase mb-3">Legal</p>
+
+        <h1 class="text-white text-4xl md:text-5xl font-extralight tracking-tight mb-4">
+          Privacy <span class="text-[#c9a84c]">Policy</span>
+        </h1>
+
+        <p class="text-white/40 text-sm">Last updated: March 20, 2026</p>
+
+        <div class="mt-6 h-px bg-gradient-to-r from-[#c9a84c]/30 to-transparent"></div>
+      </div>
+
+      <!-- Intro -->
+      <p class="text-white/50 text-sm leading-relaxed mb-12">
+        Your privacy matters to us. This policy explains how Supercar History handles information when you use our platform.
+      </p>
+
+      <!-- Sections -->
+      <div class="space-y-10">
+        {sections.map((section) => (
+          <div>
+            <h2 class="text-white text-base font-medium mb-3 tracking-wide">
+              {section.title}
+            </h2>
+
+            <p class="text-white/40 text-sm leading-relaxed">
+              {section.body}
+            </p>
+
+            <div class="mt-6 h-px bg-white/5"></div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    title: "1. Acceptance of Terms",
+    body: "By accessing and using Supercar History (\"we\", \"our\", \"us\"), you agree to be bound by these Terms and Conditions. If you do not agree, you must not use this website.",
+  },
+  {
+    title: "2. Use of Content",
+    body: "All content on this website, including vehicle specifications, performance data, text, graphics, and design, is provided for informational and entertainment purposes only. You may not reproduce, distribute, or commercially exploit any content without prior written permission.",
+  },
+  {
+    title: "3. Accuracy of Information",
+    body: "We strive to ensure that all information is accurate and up to date. However, we make no warranties regarding completeness, reliability, or accuracy. Specifications and performance figures may vary or be approximate.",
+  },
+  {
+    title: "4. Third-Party Content and Images",
+    body: "Images and media may be sourced from third-party providers and are used for illustrative purposes only. All rights belong to their respective owners. We do not claim ownership unless explicitly stated.",
+  },
+  {
+    title: "5. Advertising and External Links",
+    body: "This website may display third-party advertisements and contain links to external websites. We are not responsible for the content, policies, or practices of any third-party sites or services.",
+  },
+  {
+    title: "6. Affiliate Disclosure",
+    body: "Some links on this website may be affiliate links. This means we may earn a commission at no additional cost to you if you make a purchase through those links.",
+  },
+  {
+    title: "7. My Collection Feature",
+    body: "The 'My Collection' feature stores data locally in your browser using localStorage. This data is not transmitted to any server and remains entirely on your device. Clearing your browser data will permanently remove your saved collection.",
+  },
+  {
+    title: "8. Interactive Features",
+    body: "Interactive features such as 3D viewers and engine sound playback are provided for demonstration purposes only. These features are offered \"as is\" without guarantees of availability or performance.",
+  },
+  {
+    title: "9. User Responsibility",
+    body: "You agree not to misuse this website, attempt unauthorized access, or interfere with its functionality. Any malicious or harmful activity is strictly prohibited.",
+  },
+  {
+    title: "10. Limitation of Liability",
+    body: "To the fullest extent permitted by law, Supercar History shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of this website.",
+  },
+  {
+    title: "11. Changes to Terms",
+    body: "We reserve the right to modify these Terms and Conditions at any time. Continued use of the website after changes are posted constitutes acceptance of those changes.",
+  },
+  {
+    title: "12. Governing Law",
+    body: "These Terms and Conditions are governed by and construed in accordance with the laws of the Philippines. Any disputes shall be subject to the exclusive jurisdiction of its courts.",
+  },
+  {
+    title: "13. Contact",
+    body: "If you have any questions regarding these Terms and Conditions, you may contact us through the About page.",
+  },
+];
+---
+
+<Layout title="Terms and Conditions | Supercar History">
+  <div class="min-h-screen bg-[#0a0a0a] pt-28 pb-24">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="mb-14">
+        <p class="text-[#c9a84c] text-xs tracking-[0.3em] uppercase mb-3">Legal</p>
+        
+        <h1 class="text-white text-4xl md:text-5xl font-extralight tracking-tight mb-4">
+          Terms & <span class="text-[#c9a84c]">Conditions</span>
+        </h1>
+
+        <p class="text-white/40 text-sm">Last updated: March 20, 2026</p>
+
+        <div class="mt-6 h-px bg-gradient-to-r from-[#c9a84c]/30 to-transparent"></div>
+      </div>
+
+      <!-- Intro -->
+      <p class="text-white/50 text-sm leading-relaxed mb-12">
+        Welcome to Supercar History — a platform dedicated to showcasing the performance, design, and legacy of the world's most iconic supercars. By using this website, you agree to the following terms and conditions.
+      </p>
+
+      <!-- Sections -->
+      <div class="space-y-10">
+        {sections.map((section) => (
+          <div>
+            <h2 class="text-white text-base font-medium mb-3 tracking-wide">
+              {section.title}
+            </h2>
+
+            <p class="text-white/40 text-sm leading-relaxed">
+              {section.body}
+            </p>
+
+            <div class="mt-6 h-px bg-white/5"></div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>
