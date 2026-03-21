@@ -45,9 +45,10 @@ import CarCard from '../components/CarCard.astro';
 
       <!-- Cars Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {carsData.map(car => (
+        {carsData.map((car, index) => (
           <div 
             class="car-card"
+            style={`animation-delay: ${index * 0.05}s`}
             data-name={car.name.toLowerCase()}
             data-brand={car.brand}
             data-era={car.era}
@@ -77,7 +78,7 @@ import CarCard from '../components/CarCard.astro';
 
     if (!searchInput || !brandSelect || !eraSelect) return;
 
-    // 🔥 Debounce
+    // Debounce
     const debounce = (fn, delay = 250) => {
       let timeout;
       return (...args) => {
@@ -104,9 +105,23 @@ import CarCard from '../components/CarCard.astro';
 
         const show = matchesSearch && matchesBrand && matchesEra;
 
-        card.style.display = show ? "block" : "none";
+        if (show) {
+          card.style.display = "block";
 
-        if (show) visibleCount++;
+          // animate in
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+
+          setTimeout(() => {
+            card.style.transition = "all 0.4s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, 10);
+
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
       });
 
       // Update count
@@ -139,3 +154,23 @@ import CarCard from '../components/CarCard.astro';
 
   });
 </script>
+
+<!-- 🎬 ANIMATION -->
+<style>
+  .car-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
