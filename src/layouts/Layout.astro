@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import CookieConsent from "../components/CookieConsent.astro";
+import GA4 from "../components/GA4.astro";
 const { title = "Super Car History", description = "Explore the fastest supercars ever made." } = Astro.props;
 const currentPath = Astro.url.pathname;
 const navLinks = [
@@ -21,6 +22,8 @@ const navLinks = [
     
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <GA4 />
   </head>
 
   <body class="min-h-screen bg-[#0a0a0a]">
