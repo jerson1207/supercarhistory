@@ -26,7 +26,7 @@
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/collection"
+          href="/supercars"
           class="inline-flex items-center justify-center px-8 py-4 bg-[#c9a84c] text-black text-sm font-medium tracking-widest uppercase rounded-full hover:bg-[#d4b86a] transition-all hover:scale-105"
         >
           Explore Collection
@@ -42,7 +42,9 @@
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
+    <div
+      onclick="document.getElementById('next-section').scrollIntoView({ behavior: 'smooth' })" 
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30">
       <span class="text-xs tracking-widest uppercase">Scroll</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
