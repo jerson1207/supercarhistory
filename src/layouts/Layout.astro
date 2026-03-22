@@ -53,7 +53,7 @@ const navLinks = [
 
       <button
         id="menu-toggle"
-        class="md:hidden relative z-110 text-white/60 hover:text-white transition-transform active:scale-95"
+        class="md:hidden relative z-50 text-white/60 hover:text-white transition-transform active:scale-95"
         aria-label="Toggle Menu"
       >
         <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
@@ -63,7 +63,7 @@ const navLinks = [
 
     <div 
       id="mobile-menu" 
-      class="fixed inset-0 z-90 bg-black/98 backdrop-blur-2xl hidden flex-col items-center justify-center gap-10 p-6"
+      class="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl hidden flex-col items-center justify-center gap-10 p-6"
     >
       {navLinks.map(link => (
         <a
@@ -84,8 +84,28 @@ const navLinks = [
 
     <footer class="border-t border-white/10 mt-20 py-12 text-center">
       <p class="text-white/30 text-sm tracking-widest uppercase mb-2">
-        Supercar History © 2026
+        Supercar History © 2026 · Celebrating Automotive Excellence
       </p>
+
+      <div class="text-white/30 text-xs uppercase tracking-widest flex flex-wrap justify-center gap-4 mb-2">
+        <a href="/" class="hover:text-[#c9a84c] hover:underline transition-colors">Home</a>
+        <span>·</span>
+        <a href="/supercars" class="hover:text-[#c9a84c] hover:underline transition-colors">Supercars</a>
+        <span>·</span>
+        <a href="/brands" class="hover:text-[#c9a84c] hover:underline transition-colors">Brands</a>
+        <span>·</span>
+        <a href="/supercar-comparisons" class="hover:text-[#c9a84c] hover:underline transition-colors">Compare</a>
+        <span>·</span>
+        <a href="/about" class="hover:text-[#c9a84c] hover:underline transition-colors">About</a>
+      </div>
+
+      <div class="text-white/30 text-xs uppercase tracking-widest flex flex-wrap justify-center gap-4">
+        <a href="/terms-and-conditions" class="hover:text-[#c9a84c] hover:underline transition-colors">Terms & Conditions</a>
+        <span>·</span>
+        <a href="/privacy-policy" class="hover:text-[#c9a84c] hover:underline transition-colors">Privacy Policy</a>
+        <span>·</span>
+        <a href="/disclaimer" class="hover:text-[#c9a84c] hover:underline transition-colors">Disclaimer</a>
+      </div>
     </footer>
 
     <CookieConsent />
