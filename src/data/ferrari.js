@@ -125,4 +125,96 @@ export const ferrariCars = [
       "Automotive shows and luxury car magazines worldwide"
     ],
   },
+  // 1970s
+  {
+    id: "ferrari-512-bb",
+    slug: "ferrari-512-bb",
+    name: "Ferrari 512 BB",
+    brand: "Ferrari",
+    year: "1976–1984",
+    yearStart: 1976,
+    era: "1970s",
+    type: "Supercar",
+    horsepower: 360,
+    topSpeed: 188, // mph (~303 km/h)
+    acceleration: "5.5s", // 0-100 km/h
+    engine: "5.0L flat-12",
+    production: "929 units",
+    designer: "Leonardo Fioravanti / Pininfarina",
+    country: "Italy",
+    imgURL: "https://res.cloudinary.com/dopmyge5y/image/upload/v1774248357/Ferrari_512_BB_u0schc.jpg",
+    model3D: null,
+    description:
+      "The Ferrari 512 BB (Berlinetta Boxer) was Ferrari’s mid-engine V12 supercar aimed at combining grand touring comfort with high performance. It replaced the Daytona and showcased Ferrari’s commitment to mid-engine layouts for road cars.",
+    legendary:
+      "The 512 BB solidified Ferrari’s reputation for blending style, speed, and engineering. Its flat-12 engine delivered smooth, linear power, and the car became a symbol of 1970s Italian automotive excellence.",
+    funFacts: [
+      "‘BB’ stands for ‘Berlinetta Boxer’, referring to its flat-12 engine layout.",
+      "The 512 BB was the first production Ferrari to feature a mid-mounted V12 in a road car since the 1960s prototypes.",
+      "It was known for its distinctive Pininfarina styling with pop-up headlights.",
+      "Many collectors regard it as a more usable classic Ferrari compared to earlier race-focused models.",
+      "A handful of special editions and custom coachbuilt variants exist, adding to its exclusivity."
+    ],
+    history: [
+      "Introduced in 1976 as the successor to the Ferrari Daytona (365 GTB/4).",
+      "Mid-engine flat-12 layout improved balance and handling.",
+      "512 BB was produced alongside the turbocharged 512 BBi later, which improved fuel injection and emissions.",
+      "It became a favorite among enthusiasts for both road use and track events.",
+      "Production ended in 1984, paving the way for the Ferrari Testarossa."
+    ],
+    awards: [
+      "Supercar of the Year — Various automotive magazines in late 1970s"
+    ],
+    media: [
+      "Featured in automotive magazines and posters throughout the late 70s and early 80s",
+      "Appeared in some classic films and TV shows highlighting Italian exotic cars",
+      "Renowned among car collectors as a quintessential 1970s Ferrari supercar"
+    ]
+  },
+  {
+    id: "ferrari-dino-246-gt",
+    slug: "ferrari-dino-246-gt",
+    name: "Ferrari Dino 246 GT",
+    brand: "Ferrari",
+    year: "1969–1974",
+    yearStart: 1969,
+    era: "1970s",
+    type: "Supercar",
+    horsepower: 195,
+    topSpeed: 146, // mph (~235 km/h)
+    acceleration: "6.8s", // 0-100 km/h
+    engine: "2.4L V6",
+    production: "3,569 units",
+    designer: "Leonardo Fioravanti / Pininfarina",
+    country: "Italy",
+    imgURL: "https://res.cloudinary.com/dopmyge5y/image/upload/v1774249164/Ferrari_Dino_246_GT_Rosso_Corsa_Ferrari_Red_nt9o1y.png",
+    model3D: null,
+    description:
+      "The Ferrari Dino 246 GT was Ferrari’s first mid-engine V6 road car, designed as an entry-level exotic to complement its V12 models. It combined agile handling with the iconic Italian design of Pininfarina.",
+    legendary:
+      "The 246 GT established the mid-engine layout for Ferrari road cars and became the benchmark for small, balanced, and stylish sports cars. Its lightweight chassis and V6 engine made it extremely nimble and fun to drive.",
+    funFacts: [
+      "Named after Enzo Ferrari’s son, Alfredo 'Dino' Ferrari, who helped develop the V6 engine before his untimely death.",
+      "Although a Ferrari in spirit, it was branded simply as 'Dino' to separate it from the flagship V12 models.",
+      "Its design influenced many future mid-engine sports cars.",
+      "The car featured a steel monocoque chassis with aluminum body panels for weight savings.",
+      "Steve McQueen and other celebrities were rumored to favor the Dino for its agility and style."
+    ],
+    history: [
+      "Launched in 1969 as the successor to the 206 GT.",
+      "Mid-engine layout improved handling and balance compared to front-engine Ferraris.",
+      "Production continued until 1974, totaling 3,569 units.",
+      "Popularized the use of V6 engines in high-performance sports cars.",
+      "Its success helped Ferrari justify future mid-engine V8 and V12 road cars."
+    ],
+    awards: [
+      "Car of the Year — Classic Car Magazines (early 1970s)",
+      "Most Beautiful Car of the 1970s — Multiple awards"
+    ],
+    media: [
+      "Featured in numerous automotive magazines and posters in the 1970s",
+      "Often seen in vintage racing and classic car events",
+      "Recognized as one of the most collectible Ferraris today"
+    ]
+  }
 ];

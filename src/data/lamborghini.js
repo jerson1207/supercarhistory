@@ -135,5 +135,50 @@ export const lamborghiniCars = [
       "Appeared on countless supercar posters and magazines",
       "Renowned for being one of the first true supercar icons"
     ]
+  },
+  // 1970s
+  {
+    id: "lamborghini-urraco",
+    slug: "lamborghini-urraco",
+    name: "Lamborghini Urraco",
+    brand: "Lamborghini",
+    year: "1973–1979",
+    yearStart: 1973,
+    era: "1970s",
+    type: "Supercar",
+    horsepower: 250, // varies by version (P250)
+    topSpeed: 245, // km/h
+    acceleration: "6.5s", // 0-100 km/h
+    engine: "2.5L V8",
+    production: "791 units",
+    designer: "Marcello Gandini / Bertone",
+    country: "Italy",
+    imgURL: "https://res.cloudinary.com/dopmyge5y/image/upload/v1774247555/Lamborghini_Urraco_pkoh2h.jpg",
+    model3D: null,
+    description:
+      "The Lamborghini Urraco was Lamborghini’s attempt to compete with smaller, more affordable sports cars like the Ferrari Dino. It featured a mid-engine V8 layout and a 2+2 seating configuration, making it more practical than its V12 siblings.",
+    legendary:
+      "The Urraco represented Lamborghini’s first serious step into a broader market segment. While it never reached the fame of the Countach or Miura, it laid the groundwork for future V8 Lamborghinis and proved the brand could build smaller, more accessible performance cars.",
+    funFacts: [
+      "The name 'Urraco' comes from a lesser-known breed of Spanish fighting bull.",
+      "It was designed by Marcello Gandini, the same designer behind the Miura and Countach.",
+      "The car had a rare 2+2 layout for a mid-engine Lamborghini.",
+      "Different versions existed: P200, P250, and P300, depending on engine size and market.",
+      "It was Lamborghini’s direct competitor to the Ferrari Dino 246 GT."
+    ],
+    history: [
+      "Introduced in 1973 to expand Lamborghini’s lineup into a more affordable segment.",
+      "Designed to rival Ferrari’s smaller V6 models like the Dino.",
+      "Faced production delays and financial challenges during the 1970s oil crisis.",
+      "P300 version introduced later with increased power (~265 hp).",
+      "Production ended in 1979, replaced by the Lamborghini Silhouette and later the Jalpa."
+    ],
+    awards: [],
+    media: [
+      "Featured in classic car magazines of the 1970s",
+      "Recognized today as an underrated Lamborghini classic",
+      "Appears in vintage car collections and retro automotive media"
+    ]
   }
+
 ];

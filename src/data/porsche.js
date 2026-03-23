@@ -36,4 +36,50 @@ export const porscheCars = [
       "Gran Turismo video game series"
     ],
   },
+  // 1970s
+  {
+    id: "porsche-911-turbo-930",
+    slug: "porsche-911-turbo-930",
+    name: "Porsche 911 Turbo (930)",
+    brand: "Porsche",
+    year: "1975–1989",
+    yearStart: 1975,
+    era: "1970s",
+    type: "Supercar",
+    horsepower: 260, // early 930 version
+    topSpeed: 250, // km/h (~155 mph)
+    acceleration: "5.0s", // 0-100 km/h
+    engine: "3.0L turbocharged flat-6",
+    production: "21,000+ units",
+    designer: "Ferdinand 'Butzi' Porsche",
+    country: "Germany",
+    imgURL: "https://res.cloudinary.com/dopmyge5y/image/upload/v1774249559/Porsche_911_Turbo_930_Grand_Prix_White_wriqqy.png",
+    model3D: null,
+    description:
+      "The Porsche 911 Turbo (930) was Porsche’s first production turbocharged 911. Combining lightweight design, rear-engine layout, and turbocharging, it became a benchmark for high-performance sports cars in the late 1970s.",
+    legendary:
+      "The 930 established Porsche’s turbo reputation. Known for its aggressive handling, wide rear fenders, and distinctive 'whale tail' spoiler, it became an icon of 1970s performance engineering and remains highly collectible today.",
+    funFacts: [
+      "Nickname 'Widowmaker' due to its sudden oversteer when turbo kicked in.",
+      "It was the fastest production 911 of its time.",
+      "First 911 Turbo had a 3.0L engine; later upgraded to 3.3L with more power.",
+      "Its distinctive flared fenders accommodated wider rear tires for better grip.",
+      "Famous owners include motorsport drivers and celebrities of the era."
+    ],
+    history: [
+      "Introduced in 1975 as Porsche’s first turbocharged road car.",
+      "3.0L flat-6 turbo engine produced 260 hp and later 3.3L versions produced up to 330 hp.",
+      "Aggressive bodywork and whale tail spoiler improved aerodynamics and stability.",
+      "Produced throughout the 1970s and 1980s, cementing the 911 Turbo as a legendary sports car.",
+      "It influenced all future Porsche Turbo models, both road and racing cars."
+    ],
+    awards: [
+      "Sports Car of the Year — 1975, various European magazines"
+    ],
+    media: [
+      "Featured in automotive magazines worldwide",
+      "Appeared in 1980s car commercials and racing footage",
+      "Recognized as a poster car and collectible classic today"
+    ]
+  }
 ];
