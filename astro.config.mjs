@@ -16,4 +16,5 @@ export default defineConfig({
     react(),
     sitemap()
   ],
+  trailingSlash: "never",
 });

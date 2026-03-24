@@ -38,17 +38,26 @@ const navLinks = [
       </a>
 
       <div class="hidden md:flex items-center gap-8">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class:list={[
-              "text-xs tracking-widest uppercase transition-colors",
-              currentPath === link.href ? "text-[#c9a84c]" : "text-white/40 hover:text-white"
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
+        {navLinks.map(link => {
+          const isActive =
+            currentPath === link.href ||
+            currentPath.startsWith(link.href + "/");
+
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "text-xs tracking-widest uppercase transition-colors",
+                isActive
+                  ? "text-[#c9a84c]"
+                  : "text-white/40 hover:text-white"
+              ]}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          );
+        })}
       </div>
 
       <button
