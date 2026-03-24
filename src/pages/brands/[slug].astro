@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { brandsData } from '../../data/brandsdata.js';
+import { carsData } from '../../data/cars';
+import Calendar from '../../assets/icons/calendar.svg';
+import MapPin from '../../assets/icons/map-pin.svg';
+import ArrowRight from '../../assets/icons/arrow-right.svg';
+import CarCard from '../../components/CarCard.astro';
+import Users from '../../assets/icons/users.svg';
+
+export async function getStaticPaths() {
+  return brandsData.map(brand => ({
+    params: { slug: brand.slug },
+    props: { brand },
+  }));
+}
+
+const { brand } = Astro.props;
+
+if (!brand) {
+  return Astro.redirect('/404');
+}
+
+const brandCars = carsData.filter(
+  (car) => car.brand.toLowerCase() === brand.name.toLowerCase()
+);
+
+---
+<Layout>
+    <div class="min-h-screen bg-[#0a0a0a]">
+      {/* Hero */}
+      <div class="relative h-[55vh] min-h-95 overflow-hidden">
+        <img
+          src={brand.heroImage}
+          alt={brand.name}
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-black/50 to-black/20" />
+        <div class="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-10 max-w-6xl mx-auto">
+          <a
+            href="/brands"
+            class="inline-flex items-center gap-1.5 text-white/30 hover:text-white text-xs tracking-widest uppercase mb-6 transition-colors"
+          >
+            <ArrowRight class="group-hover:translate-x-1 transition-transform w-4 h-4" /> All Brands
+          </a>
+          <p class="text-[#c9a84c] text-xs tracking-[0.3em] uppercase mb-2">{brand.country}</p>
+          <h1 class="text-white text-5xl md:text-7xl font-extralight tracking-tight mb-3">{brand.name}</h1>
+          <p class="text-white/40 text-sm italic">"{brand.tagline}"</p>
+        </div>
+      </div>
+
+       <div class="max-w-6xl mx-auto px-6 md:px-12 pb-24 pt-12">  
+          {/* Stats row */}
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+            {brand.stats.map((s) => (
+              <div class="border border-white/8 rounded-xl p-4 bg-white/2">
+                <p class="text-white/30 text-xs tracking-widest uppercase mb-1">{s.label}</p>
+                <p class="text-white text-lg font-light">{s.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-12 mb-16">
+            {/* Overview */}
+            <div class="md:col-span-2">
+              <h2 class="text-[#c9a84c] text-xs tracking-[0.25em] uppercase mb-4">Overview</h2>
+              <p class="text-white/50 text-sm leading-relaxed">{brand.overview}</p>
+            </div>
+
+            {/* Quick facts */}
+            <div>
+              <h2 class="text-[#c9a84c] text-xs tracking-[0.25em] uppercase mb-4">Quick Facts</h2>
+              <div class="space-y-3">
+                <div class="flex items-start gap-2 text-sm">
+                  <Users class="w-3 h-3 text-white/20 mt-0.5 shrink-0" />
+                  <div>
+                    <p class="text-white/20 text-xs">Founder</p>
+                    <p class="text-white/60">{brand.founder}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2 text-sm">
+                  <Calendar class="w-3 h-3 text-white/20 mt-0.5 shrink-0" />
+                  <div>
+                    <p class="text-white/20 text-xs">Founded</p>
+                    <p class="text-white/60">{brand.founded}</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2 text-sm">
+                  <MapPin class="w-3 h-3 text-white/20 mt-0.5 shrink-0" />
+                  <div>
+                    <p class="text-white/20 text-xs">Headquarters</p>
+                    <p class="text-white/60">{brand.headquarters}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Timeline */}
+          <div class="mb-16">
+            <h2 class="text-[#c9a84c] text-xs tracking-[0.25em] uppercase mb-8">History</h2>
+            <h2 class="sr-only">timeline</h2>
+            <div class="relative">
+              <div class="absolute left-13 top-0 bottom-0 w-px bg-white/5" />
+              <div class="space-y-6">
+                {brand.history.map((item, i) => (
+                  <div  class="flex items-start gap-6">
+                    <div class="shrink-0 w-13 text-right">
+                      <span class="text-[#c9a84c] text-xs font-light tabular-nums">{item.year}</span>
+                    </div>
+                    <div class="relative shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-[#c9a84c]/40 ring-4 ring-[#0a0a0a]" />
+                    </div>
+                    <p class="text-white/40 text-sm leading-relaxed pt-0">{item.event}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+        {/* Achievements Timeline */}
+        <div class="mb-24">
+          <h2 class="text-[#c9a84c] text-xs tracking-[0.25em] uppercase mb-12 text-center md:text-left">Achievements</h2>
+          
+          <div class="relative max-w-5xl mx-auto">
+            {/* Vertical Track: Left on mobile, Center on desktop */}
+            <div class="absolute left-6.75 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
+
+            <div class="space-y-10">
+              {brand.achievements?.map((achievement, index) => (
+                <div class={`relative flex flex-col md:flex-row items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  
+                  {/* Timeline Node */}
+                  <div class="absolute left-0 md:left-1/2 top-0 md:top-1/2 w-14 h-14 -translate-y-2 md:-translate-y-1/2 md:-translate-x-1/2 flex items-center justify-center z-10">
+                    <div class="w-3 h-3 rounded-full bg-[#c9a84c] shadow-[0_0_15px_rgba(201,168,76,0.6)] ring-4 ring-[#0a0a0a] transition-transform duration-300 hover:scale-125" />
+                  </div>
+
+                  {/* Content Card */}
+                  <div class={`w-full md:w-1/2 pl-20 md:pl-0 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 text-left'}`}>
+                    <div class="group p-4 md:p-6 border border-white/5 rounded-2xl bg-white/2 hover:bg-white/4 hover:border-[#c9a84c]/20 transition-all duration-300">
+                      {/* Year Badge */}
+                      <div class={`mb-4 ${index % 2 === 0 ? 'md:flex md:justify-end' : ''}`}>
+                        <span class="inline-flex items-center justify-center px-4 py-1 rounded-full border border-[#c9a84c]/30 bg-[#c9a84c]/10 text-[#c9a84c] text-xs font-medium tabular-nums tracking-widest shadow-[inset_0_0_10px_rgba(201,168,76,0.1)]">
+                          {achievement.year}
+                        </span>
+                      </div>
+                      
+                      <h3 class="text-white text-xl md:text-2xl font-light mb-3 tracking-tight">{achievement.title}</h3>
+                      <p class="text-white/40 text-sm leading-relaxed">{achievement.detail}</p>
+                    </div>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Legacy */}
+        <div class="mb-16 border border-[#c9a84c]/15 rounded-2xl p-8 bg-[#c9a84c]/3">
+          <p class="text-[#c9a84c] text-xs tracking-[0.25em] uppercase mb-4">Legacy</p>
+          <p class="text-white/50 text-sm leading-relaxed" >{brand.legacy}</p>
+        </div>
+
+        {/* Cars in collection */}
+        {carsData.length > 0 && (
+          <div>
+            <h2 class="text-[#c9a84c] tracking-[0.25em] uppercase mb-4 text-xl">{brand.name} Cars</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {brandCars.map((car) => (
+                <CarCard car={car} />
+              ))}
+            </div>
+          </div>
+        )}
+       </div>
+    </div>
+</Layout>
