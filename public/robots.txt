@@ -1,10 +1,15 @@
-# Allow all search engines to crawl
-User-agent: *
+# Specifically allow Google to crawl everything
+User-agent: Googlebot
 Allow: /
 
-# Optional: disallow bad bots
+# Allow all other normal search engines
+User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+
+# Block bad bots
 User-agent: BadBot
 Disallow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://supercarhistory.com/sitemap.xml
