@@ -11,6 +11,8 @@ const navLinks = [
   { label: "Compare", href: "/supercar-comparisons" },
   { label: "About", href: "/about" },
 ];
+
+const { canonicalUrl } = Astro.props;
 ---
 <html lang="en">
   <head>
@@ -21,6 +23,7 @@ const navLinks = [
     <meta name="description" content={description}>
     <title>{title}</title>
     <meta name="robots" content="index, follow">
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">

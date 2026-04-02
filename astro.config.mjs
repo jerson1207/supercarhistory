@@ -4,7 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://supercarhistory.com',
 
@@ -16,5 +15,10 @@ export default defineConfig({
     react(),
     sitemap()
   ],
-  trailingSlash: "never",
+  
+  trailingSlash: 'never', 
+  
+  build: {
+    format: 'file'
+  }
 });

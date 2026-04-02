@@ -26,9 +26,11 @@ const { car } = Astro.props;
 if (!car) {
   return Astro.redirect('/404');
 }
+
+const canonicalUrl = `https://www.supercarhistory.com/supercars/${car.slug}`;
 ---
 
-<Layout title={`${car.name} Specs, Top Speed, 0-60, Engine & History`} description={car.description}>
+<Layout title={`${car.name} Specs, Top Speed, 0-60, Engine & History`} description={car.description} canonicalUrl={canonicalUrl}>
   <div class="min-h-screen bg-[#0a0a0a]">
     <div class="relative h-[60vh] min-h-100 overflow-hidden">
       <img
