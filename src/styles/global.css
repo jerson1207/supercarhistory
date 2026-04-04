@@ -30,3 +30,44 @@
 html {
   scroll-behavior: smooth;
 }
+
+.prose-custom {
+  color: rgba(255, 255, 255, 0.7); /* default paragraph color */
+  font-size: 1rem;                  /* base text size */
+  line-height: 1.75;                /* leading-relaxed equivalent */
+}
+
+.prose-custom p {
+  margin-bottom: 1.5rem;           /* spacing between paragraphs (mb-6) */
+}
+
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  color: #ffffff;                   /* headings color */
+  font-weight: 300;                 /* font-light/extralight */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose-custom h2 {
+  font-size: 2rem;                  /* equivalent to prose-h2:text-2xl */
+}
+
+.prose-custom h3 {
+  font-size: 1.5rem;                /* equivalent to prose-h3:text-xl */
+}
+
+.prose-custom strong {
+  color: #c9a84c;                   /* gold color for strong text */
+  font-weight: 500;
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid #c9a84c;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 1.5rem 0;
+}
