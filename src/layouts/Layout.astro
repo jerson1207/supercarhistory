@@ -17,19 +17,19 @@ const { canonicalUrl } = Astro.props;
 ---
 <html lang="en">
   <head>
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9303417310335480" crossorigin="anonymous"></script>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content={description}>
     <title>{title}</title>
     <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-9303417310335480">
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
+    
     <GA4 />
+    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9303417310335480" crossorigin="anonymous"></script>
   </head>
 
   <body class="min-h-screen bg-[#0a0a0a]">
