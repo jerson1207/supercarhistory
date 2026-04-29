@@ -2,8 +2,10 @@
 import "../styles/global.css";
 import CookieConsent from "../components/CookieConsent.astro";
 import GA4 from "../components/GA4.astro";
+
 const { title = "Super Car History", description = "Explore the fastest supercars ever made." } = Astro.props;
 const currentPath = Astro.url.pathname;
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Supercars", href: "/supercars" },
@@ -15,6 +17,7 @@ const navLinks = [
 
 const { canonicalUrl } = Astro.props;
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -23,16 +26,19 @@ const { canonicalUrl } = Astro.props;
     <title>{title}</title>
     <meta name="robots" content="index, follow">
     <meta name="google-adsense-account" content="ca-pub-9303417310335480">
+
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    
+
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    
+
     <GA4 />
     <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9303417310335480" crossorigin="anonymous"></script>
   </head>
 
   <body class="min-h-screen bg-[#0a0a0a]">
+
+    <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 bg-linear-to-b from-black/80 to-transparent backdrop-blur-sm">
       <a href="/" class="flex items-center gap-2">
         <div class="w-7 h-7 rounded-full border border-[#c9a84c]/60 flex items-center justify-center">
@@ -43,6 +49,7 @@ const { canonicalUrl } = Astro.props;
         </span>
       </a>
 
+      <!-- Desktop -->
       <div class="hidden md:flex items-center gap-8">
         {navLinks.map(link => {
           const isActive =
@@ -66,86 +73,87 @@ const { canonicalUrl } = Astro.props;
         })}
       </div>
 
+      <!-- Mobile toggle -->
       <button
         id="menu-toggle"
         class="md:hidden relative z-50 text-white/60 hover:text-white transition-transform active:scale-95"
         aria-label="Toggle Menu"
       >
-        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-        <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+        <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
       </button>
     </nav>
 
+    <!-- MOBILE MENU -->
     <div 
       id="mobile-menu" 
-      class="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl hidden flex-col items-center justify-center gap-10 p-6"
+      class="fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl hidden flex-col items-center justify-center gap-6 px-6"
     >
       {navLinks.map(link => (
         <a
           href={link.href}
           class:list={[
-            "text-2xl font-light tracking-[0.3em] uppercase hover:text-white transition-colors",
-            currentPath === link.href ? "text-[#c9a84c]" : "text-white/40"
+            "w-full text-center py-4 text-2xl font-light tracking-[0.3em] uppercase rounded-xl transition hover:bg-white/5",
+            currentPath === link.href ? "text-[#c9a84c]" : "text-white/40 hover:text-white"
           ]}
         >
           {link.label}
         </a>
       ))}
     </div>
-    
+
     <main>
-        <slot />
+      <slot />
     </main>
 
+    <!-- FOOTER -->
     <footer class="border-t border-white/10 mt-20 py-12 text-center">
       <p class="text-white/30 text-sm tracking-widest uppercase mb-2">
         Supercar History © 2026 · Celebrating Automotive Excellence
       </p>
 
       <div class="text-white/30 text-xs uppercase tracking-widest flex flex-wrap justify-center gap-4 mb-2">
-        <a href="/" class="hover:text-[#c9a84c] hover:underline transition-colors">Home</a>
+        <a href="/" class="hover:text-[#c9a84c] hover:underline">Home</a>
         <span>·</span>
-        <a href="/supercars" class="hover:text-[#c9a84c] hover:underline transition-colors">Supercars</a>
+        <a href="/supercars" class="hover:text-[#c9a84c] hover:underline">Supercars</a>
         <span>·</span>
-        <a href="/brands" class="hover:text-[#c9a84c] hover:underline transition-colors">Brands</a>
+        <a href="/brands" class="hover:text-[#c9a84c] hover:underline">Brands</a>
         <span>·</span>
-        <a href="/supercar-comparisons" class="hover:text-[#c9a84c] hover:underline transition-colors">Compare</a>
+        <a href="/supercar-comparisons" class="hover:text-[#c9a84c] hover:underline">Compare</a>
         <span>·</span>
-        <a href="/about" class="hover:text-[#c9a84c] hover:underline transition-colors">About</a>
+        <a href="/about" class="hover:text-[#c9a84c] hover:underline">About</a>
       </div>
 
       <div class="text-white/30 text-xs uppercase tracking-widest flex flex-wrap justify-center gap-4">
-        <a href="/terms-and-conditions" class="hover:text-[#c9a84c] hover:underline transition-colors">Terms & Conditions</a>
+        <a href="/terms-and-conditions" class="hover:text-[#c9a84c] hover:underline">Terms & Conditions</a>
         <span>·</span>
-        <a href="/privacy-policy" class="hover:text-[#c9a84c] hover:underline transition-colors">Privacy Policy</a>
+        <a href="/privacy-policy" class="hover:text-[#c9a84c] hover:underline">Privacy Policy</a>
         <span>·</span>
-        <a href="/disclaimer" class="hover:text-[#c9a84c] hover:underline transition-colors">Disclaimer</a>
+        <a href="/disclaimer" class="hover:text-[#c9a84c] hover:underline">Disclaimer</a>
       </div>
     </footer>
 
     <CookieConsent />
 
+    <!-- SCRIPT -->
     <script>
-      const menuToggle = document.getElementById('menu-toggle') as HTMLElement | null;
-      const mobileMenu = document.getElementById('mobile-menu') as HTMLElement | null;
-      const menuIcon = document.getElementById('menu-icon') as HTMLElement | null;
-      const closeIcon = document.getElementById('close-icon') as HTMLElement | null;
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
 
-      // Only proceed if all elements exist (Removes the red squiggly lines)
       if (menuToggle && mobileMenu && menuIcon && closeIcon) {
-        
+
         const toggleMenu = () => {
           const isOpening = mobileMenu.classList.contains('hidden');
-          
+
           if (isOpening) {
-            // Open the menu
             mobileMenu.classList.remove('hidden');
             mobileMenu.classList.add('flex');
             menuIcon.classList.add('hidden');
             closeIcon.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
           } else {
-            // Close the menu
             mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('flex');
             menuIcon.classList.remove('hidden');
@@ -156,14 +164,15 @@ const { canonicalUrl } = Astro.props;
 
         menuToggle.addEventListener('click', toggleMenu);
 
-        //Automatically close menu when a link is clicked
-        const navLinks = mobileMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
+        // FIX: renamed variable to avoid shadowing
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
           link.addEventListener('click', () => {
             if (!mobileMenu.classList.contains('hidden')) toggleMenu();
           });
         });
       }
     </script>
+
   </body>
 </html>
